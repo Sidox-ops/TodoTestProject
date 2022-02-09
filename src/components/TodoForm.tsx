@@ -3,6 +3,9 @@ import TodoModel from "../models/todo";
 import { TodoContext } from "../store/store-todo";
 import classes from "./TodoForm.module.css";
 import TaskFilters from "./TaskFilters";
+import { Box, useToast } from '@chakra-ui/react'
+
+
 
 const TodoForm = () => {
   const [loading, setLoading] = useState(false);
@@ -13,6 +16,9 @@ const TodoForm = () => {
   const todoCtx = useContext(TodoContext);
   
   const addTodo = todoCtx.addTodo;
+  const toast = useToast()
+
+
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,6 +32,17 @@ const TodoForm = () => {
     if (newTodo.text.trim() === "") {
       return;
     }
+    toast({
+      duration: 4000,
+      position: 'bottom-left',
+      render: () => (
+        <Box color='white' p={12} bg='green'>
+          Todo Added !😎
+        </Box>
+      ),
+      isClosable: true,
+    })
+
     addTodo(newTodo);
 
     inputRef.current!.value = "";

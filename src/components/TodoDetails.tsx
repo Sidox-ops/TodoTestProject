@@ -1,3 +1,5 @@
+import { Box } from "@chakra-ui/layout";
+import { toast, useToast } from "@chakra-ui/toast";
 import React, { useContext, useState } from "react";
 import TodoModel from "../models/todo";
 import { TodoContext } from "../store/store-todo";
@@ -18,15 +20,37 @@ const TodoDetails = ({ todo }: TodoDetailsProps) => {
 
   const removeTodoHanlder = () => {
     removeTodo(todo.code!);
+    toast({
+      duration: 4000,
+      position: 'bottom-left',
+      render: () => (
+        <Box color='white' p={12} bg='red'>
+          Todo deleted !👏
+        </Box>
+      ),
+      isClosable: true,
+    })
   };
 
   const checkTodoHandler = () => {
     checkTodo(todo.code!);
   };
 
+  const toast = useToast();
+  
   const saveEditTodoHandler = () => {
     updateTodo(todo.code!, todoText);
     setEditing(false);
+    toast({
+      duration: 4000,
+      position: 'bottom-left',
+      render: () => (
+        <Box color='white' p={12} bg='blue'>
+          Todo modified !🤪
+        </Box>
+      ),
+      isClosable: true,
+    })
   };
 
   const onEnterPressHandler = (event: React.KeyboardEvent) => {
