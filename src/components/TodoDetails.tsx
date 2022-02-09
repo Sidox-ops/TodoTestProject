@@ -45,7 +45,7 @@ const TodoDetails = ({ todo }: TodoDetailsProps) => {
       duration: 4000,
       position: 'bottom-left',
       render: () => (
-        <Box color='white' p={12} bg='blue'>
+        <Box data-test-e2e="modified-toast" color='white' p={12} bg='blue'>
           Todo modified !🤪
         </Box>
       ),

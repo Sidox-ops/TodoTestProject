@@ -24,5 +24,8 @@ test.describe('Update todo', () => {
     // Make sure the first item in list is equal to TODO_ITEMS_TEXTS[0].
     let todoText = await page.innerText('[data-test-e2e=todo-text-0]');
     expect(todoText).toBe(TODO_ITEMS_TEXTS[0]);
+
+    // check on page if the popup toast "modified" appears
+    await page.waitForSelector('[data-test-e2e=modified-toast]');
   });
 })
