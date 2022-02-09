@@ -1,5 +1,6 @@
 interface TodoModel {
   text: string;
+  number: number;
   id: string;
   complete: boolean;
   createdAt?: string;

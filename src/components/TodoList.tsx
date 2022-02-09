@@ -17,19 +17,19 @@ const TodoList = () => {
 
   const allTodos =
     filterOrder === filter.all &&
-    todoList.map((todo) => <TodoDetails key={todo.id} todo={todo} />);
+    todoList.map((todo, num) => <TodoDetails key={todo.id} number={num} todo={todo} />);
 
   const completedTodos =
     filterOrder === filter.completed &&
     todoList
       .filter((todo) => todo.complete === true)
-      .map((todo) => <TodoDetails key={todo.id} todo={todo} />);
+      .map((todo, num) => <TodoDetails key={todo.id} number={num} todo={todo} />);
 
   const activeTodos =
     filterOrder === filter.active &&
     todoList
       .filter((todo) => todo.complete === false)
-      .map((todo) => <TodoDetails key={todo.id} todo={todo} />);
+      .map((todo, num) => <TodoDetails key={todo.id} number={num} todo={todo} />);
 
   return (
     <div className={classes.todoList}>

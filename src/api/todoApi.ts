@@ -96,6 +96,7 @@ export const getTodosAPI = async () => {
     for (const key in data) {
       loadedTodos.push({
         code: key,
+        number: data[key].number,
         id: data[key].id,
         text: data[key].text,
         createdAt: data[key].createdAt,

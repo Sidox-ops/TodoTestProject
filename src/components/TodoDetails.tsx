@@ -5,6 +5,7 @@ import classes from "./TodoDetails.module.css";
 
 interface TodoDetailsProps {
   todo: TodoModel;
+  number: number;
 }
 const TodoDetails = ({ todo }: TodoDetailsProps) => {
   const [todoText, setTodoText] = useState<string>(todo.text);
@@ -52,9 +53,10 @@ const TodoDetails = ({ todo }: TodoDetailsProps) => {
         </button>
       </div>
       <div className={classes.cell}>
-        {!editing && <div className={classes.title}>{todoText}</div>}
+        {!editing && <div data-test-e2e={`todo-text-${todo.number}`} className={classes.title}>{todoText}</div>}
         {editing && (
           <input
+            data-test-e2e={`edit-todo-input-${todo.number}`}
             onKeyPress={onEnterPressHandler}
             className={classes.input}
             type="text"
@@ -65,6 +67,7 @@ const TodoDetails = ({ todo }: TodoDetailsProps) => {
       </div>
       <div className={classes.cell}>
         <button
+          data-test-e2e={`edit-todo-${todo.number}`}
           className={`${classes.icon} ${hide}`}
           onClick={() => setEditing(true)}
         >

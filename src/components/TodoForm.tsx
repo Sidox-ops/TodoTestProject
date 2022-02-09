@@ -11,11 +11,13 @@ const TodoForm = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const todoCtx = useContext(TodoContext);
+  
   const addTodo = todoCtx.addTodo;
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     const newTodo: TodoModel = {
+      number: todoCtx.todoList.length,
       text: inputRef.current!.value,
       id: new Date().getTime().toString(),
       complete: false,
