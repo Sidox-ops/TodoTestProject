@@ -1,4 +1,5 @@
 import TodoModel from "../models/todo";
+import { useToast } from '@chakra-ui/react'
 
 export const addTodosAPI = async (todo: TodoModel) => {
   try {
@@ -16,7 +17,7 @@ export const addTodosAPI = async (todo: TodoModel) => {
     if (!response.ok) {
       throw new Error("Sending Todo Fail");
     }
-
+    
     const data = await response.json();
     return data;
   } catch (e) {
