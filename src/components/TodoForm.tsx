@@ -31,10 +31,11 @@ const TodoForm = () => {
       return;
     }
     toast({
+      duration: 4000,
       position: 'bottom-left',
       render: () => (
         <Box color='white' p={12} bg='green'>
-          Todo Added !🤪
+          Todo Added !😎
         </Box>
       ),
       isClosable: true,
