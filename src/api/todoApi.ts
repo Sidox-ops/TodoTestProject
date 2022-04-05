@@ -4,7 +4,7 @@ import { useToast } from '@chakra-ui/react'
 export const addTodosAPI = async (todo: TodoModel) => {
   try {
     const response = await fetch(
-      "https://todo-app-16d97-default-rtdb.europe-west1.firebasedatabase.app/todoList.json",
+      "https://todo-e2e-default-rtdb.europe-west1.firebasedatabase.app/todolist.json",
       {
         method: "POST",
         body: JSON.stringify({ ...todo }),
@@ -28,7 +28,7 @@ export const addTodosAPI = async (todo: TodoModel) => {
 export const removeTodoAPI = async (code: string) => {
   try {
     const response = await fetch(
-      `https://todo-app-16d97-default-rtdb.europe-west1.firebasedatabase.app/todoList/${code}.json`,
+      `https://todo-e2e-default-rtdb.europe-west1.firebasedatabase.app/todolist/${code}.json`,
       {
         method: "DELETE",
       }
@@ -44,7 +44,7 @@ export const removeTodoAPI = async (code: string) => {
 export const editTodoAPI = async (code: string, updateText: string) => {
   try {
     const response = await fetch(
-      `https://todo-app-16d97-default-rtdb.europe-west1.firebasedatabase.app/todoList/${code}.json`,
+      `https://todo-e2e-default-rtdb.europe-west1.firebasedatabase.app/todolist/${code}.json`,
       {
         method: "PATCH",
         body: JSON.stringify({ text: updateText }),
@@ -65,7 +65,7 @@ export const editTodoAPI = async (code: string, updateText: string) => {
 export const checkTodoAPI = async (code: string, updateComplete: boolean) => {
   try {
     const response = await fetch(
-      `https://todo-app-16d97-default-rtdb.europe-west1.firebasedatabase.app/todoList/${code}.json`,
+      `https://todo-e2e-default-rtdb.europe-west1.firebasedatabase.app/todolist/${code}.json`,
       {
         method: "PATCH",
         body: JSON.stringify({ complete: updateComplete }),
@@ -83,7 +83,7 @@ export const checkTodoAPI = async (code: string, updateComplete: boolean) => {
 export const getTodosAPI = async () => {
   try {
     const response = await fetch(
-      "https://todo-app-16d97-default-rtdb.europe-west1.firebasedatabase.app/todoList.json"
+      "https://todo-e2e-default-rtdb.europe-west1.firebasedatabase.app/todolist.json"
     );
 
     if (!response.ok) {
@@ -92,9 +92,13 @@ export const getTodosAPI = async () => {
 
     const data = await response.json();
 
+    console.log(data);
+    
     const loadedTodos: TodoModel[] = [];
 
     for (const key in data) {
+      console.log(key);
+      
       loadedTodos.push({
         code: key,
         number: data[key].number,
