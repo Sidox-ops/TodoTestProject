@@ -5,6 +5,6 @@ test.describe('Delete todo', () => {
         await page.goto('http://localhost:3000');
         await page.waitForSelector('[data-test-e2e=delete-todo-0]');
         await page.click('[data-test-e2e=delete-todo-0]');
-        await page.waitForSelector('[data-test-e2e=delete-toast]');
+        await page.waitForSelector('[data-test-e2e=deleted-toast]');
     });
 });
