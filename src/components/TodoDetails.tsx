@@ -24,7 +24,7 @@ const TodoDetails = ({ todo }: TodoDetailsProps) => {
       duration: 4000,
       position: 'bottom-left',
       render: () => (
-        <Box color='white' p={12} bg='red'>
+        <Box data-test-e2e="deleted-toast" color='white' p={12} bg='red'>
           Todo deleted !👏
         </Box>
       ),
@@ -98,6 +98,7 @@ const TodoDetails = ({ todo }: TodoDetailsProps) => {
           <i className="fas fa-edit"></i>
         </button>
         <button
+          data-test-e2e={`delete-todo-${todo.number}`}
           className={`${classes.icon} ${hide}`}
           onClick={removeTodoHanlder.bind(null, todo.id)}
         >
