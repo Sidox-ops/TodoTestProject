@@ -67,7 +67,7 @@ const TodoDetails = ({ todo }: TodoDetailsProps) => {
   const hide = editing ? classes.hide : "";
 
   return (
-    <div className={`${classes.todo_item} ${todo_completed} ${todo_editing}`}>
+    <div className={`${classes.todo_item} ${todo_completed} ${todo_editing}`} data-test-e2e={`todo-${todo.number}`}>
       <div className={classes.cell}>
         <button
           className={`${classes.icon} ${classes.checkIcon} ${hide}`}
@@ -99,6 +99,7 @@ const TodoDetails = ({ todo }: TodoDetailsProps) => {
         </button>
         <button
           data-test-e2e={`delete-todo-${todo.number}`}
+          data-test-e2e-clean="delete"
           className={`${classes.icon} ${hide}`}
           onClick={removeTodoHanlder.bind(null, todo.id)}
         >
