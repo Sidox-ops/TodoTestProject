@@ -36,7 +36,7 @@ const TodoForm = () => {
       duration: 4000,
       position: 'bottom-left',
       render: () => (
-        <Box color='white' p={12} bg='green'>
+        <Box data-test-e2e="created-toast" color='white' p={12} bg='green'>
           Todo Added !😎
         </Box>
       ),
@@ -53,6 +53,7 @@ const TodoForm = () => {
         <input
           className={classes.form_input}
           id="todoText"
+          data-test-e2e="input-new-todo"
           type="text"
           maxLength={64}
           placeholder="What needs to be done?"
