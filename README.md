@@ -6,7 +6,6 @@
 
 This is a Todo Application that use Firebase API, React with TypeScript. The app can Add, Delete and Edit todo. Todo can be sorted by Complete or Active.
 
-Live: https://todo-app-16d97.web.app/
 
 ## Technologies
 
