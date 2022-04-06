@@ -72,6 +72,7 @@ const TodoDetails = ({ todo }: TodoDetailsProps) => {
         <button
           className={`${classes.icon} ${classes.checkIcon} ${hide}`}
           onClick={checkTodoHandler.bind(null, todo.id)}
+          data-test-e2e={`check-todo-${todo.number}`}
         >
           <i className="far fa-check-circle"></i>
         </button>

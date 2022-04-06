@@ -9,8 +9,8 @@ const TODO_ITEMS_TEXTS = [
   "Acheter du pain par tests e2e",
 ];
 
-test.describe("Update todo", () => {
-  test("should allow me to update the first todo item", async ({ page }) => {
+test.describe("Create two todos and check them", () => {
+  test("should allow me to create two todos", async ({ page }) => {
     await page.waitForSelector("[data-test-e2e=input-new-todo]");
     await page.fill("[data-test-e2e=input-new-todo]", TODO_ITEMS_TEXTS[0]);
     await page.keyboard.press("Enter");
@@ -24,7 +24,9 @@ test.describe("Update todo", () => {
     await page.keyboard.press("Enter");
     await page.waitForSelector("[data-test-e2e=created-toast]");
     await page.waitForSelector("[data-test-e2e=todo-1]");
+  });
 
+  test("Todos we created need to contain the good text", async ({ page }) => {
     // Make sure the text in items correspond to text we fill when created todo.
     let todoText = "";
     todoText = await page.innerText("[data-test-e2e=todo-text-0]");

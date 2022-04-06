@@ -19,6 +19,7 @@ const TaskFilters = () => {
         <a
           className={filterOrder === filter.all ? classes.active : ""}
           href="#"
+          data-test-e2e="apply-filter-all"
         >
           View All
         </a>
@@ -27,6 +28,7 @@ const TaskFilters = () => {
         <a
           className={filterOrder === filter.active ? classes.active : ""}
           href="#"
+          data-test-e2e="apply-filter-active"
         >
           Active
         </a>
@@ -35,6 +37,7 @@ const TaskFilters = () => {
         <a
           className={filterOrder === filter.completed ? classes.active : ""}
           href="#"
+          data-test-e2e="apply-filter-completed"
         >
           Completed
         </a>
